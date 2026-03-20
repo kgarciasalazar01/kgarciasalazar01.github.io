@@ -6,6 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio de Karin García</title>
     <style>
+        .subtitulo {
+            font-size: 22px;
+            margin-top: -10px;
+            color: #e9d5ff;
+            font-weight: 500;
+        }
+
+        .intro-header {
+            max-width: 600px;
+            margin: 20px auto;
+            font-size: 17px;
+            line-height: 1.5;
+        }
+
+        header::after {
+            content: "";
+            display: block;
+            width: 90px;
+            height: 4px;
+            background: #c4b5fd;
+            margin: 25px auto 0;
+            border-radius: 2px;
+        }
+
+
         body {
             font-family: "Segoe UI", Arial, sans-serif;
             margin: 0;
@@ -77,7 +102,6 @@
         }
 
 
-
         /* Tarjeta de contacto */
         .contact-card {
             margin-top: 20px;
@@ -114,8 +138,17 @@
 
     <header>
         <h1>Portafolio de Karin García</h1>
-        <p>Desarrolladora en formación | Ciencia de Datos | IA Generativa</p>
+        <h3 class="subtitulo">Desarrollo & Ciencia de Datos</h3>
+
+        <p class="intro-header">
+            Transformo datos en soluciones prácticas mediante análisis, modelos predictivos
+            y desarrollo web. Este es un espacio donde comparto lo que he creado con dedicación
+            y mucho estilo lila.
+        </p>
+
+        <a class="btn-header" href="#proyectos">Ver mis proyectos</a>
     </header>
+
     <section>
         <section class="contact-card">
             <h2>Información de contacto</h2>
@@ -137,7 +170,8 @@
                     </a>
                 </p>
                 <p><strong>Sobre mí:</strong> Estudiante de desarrollo y ciencia de datos, apasionada por analizar
-                    información, crear soluciones prácticas y aplicar modelos predictivos para resolver problemas reales.</p>
+                    información, crear soluciones prácticas y aplicar modelos predictivos para resolver problemas
+                    reales.</p>
         </section>
 
 
