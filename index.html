@@ -1,270 +1,1047 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Portafolio de Karin García</title>
-    <style>
-        body {
-            font-family: "Segoe UI", Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f8f5fc;
-            /* Lila muy suave */
-            color: #333;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karin García — Datos · IA · Desarrollo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lila-900: #1e0a40;
+    --lila-800: #3d1a78;
+    --lila-700: #5b21b6;
+    --lila-600: #7c3aed;
+    --lila-500: #8b5cf6;
+    --lila-400: #a78bfa;
+    --lila-300: #c4b5fd;
+    --lila-200: #ddd6fe;
+    --lila-100: #ede9fe;
+    --lila-50:  #f5f3ff;
+    --cream:    #faf8ff;
+    --ink:      #1a0a2e;
+    --gold:     #d4a847;
+    --gold-lt:  #f0d490;
+  }
 
-        header {
-            background: linear-gradient(135deg, #6d28d9, #a78bfa);
-            /* Lila oscuro → lila claro */
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            border-bottom-left-radius: 40px;
-            border-bottom-right-radius: 40px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
 
-        h1 {
-            margin: 0;
-            font-size: 42px;
-        }
+  /* noise overlay sutil */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+  }
 
-        .subtitulo {
-            font-size: 22px;
-            margin-top: -5px;
-            color: #e9d5ff;
-            font-weight: 500;
-        }
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%;
+    padding: 20px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 100;
+  }
+  nav::before {
+    content: '';
+    position: absolute; inset: 0;
+    backdrop-filter: blur(14px);
+    background: rgba(250,248,255,0.82);
+    border-bottom: 1px solid rgba(167,139,250,0.15);
+    z-index: -1;
+  }
+  .nav-logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--lila-700);
+  }
+  .nav-links { display: flex; gap: 38px; list-style: none; }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.17em;
+    text-transform: uppercase; color: var(--lila-800);
+    text-decoration: none; position: relative; transition: color .25s;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute;
+    bottom: -3px; left: 0; width: 0; height: 1px;
+    background: var(--lila-400); transition: width .3s;
+  }
+  .nav-links a:hover { color: var(--lila-400); }
+  .nav-links a:hover::after { width: 100%; }
 
-        .intro-header {
-            max-width: 600px;
-            margin: 20px auto;
-            font-size: 17px;
-            line-height: 1.5;
-        }
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    padding: 130px 60px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 65% 60% at 85% 50%, rgba(124,58,237,.11) 0%, transparent 65%),
+      radial-gradient(ellipse 45% 40% at 8% 85%,  rgba(91,33,182,.05)  0%, transparent 60%);
+    pointer-events: none;
+  }
+  /* líneas de fondo */
+  .hero::after {
+    content: '';
+    position: absolute; right: 0; top: 0;
+    width: 50%; height: 100%;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 59px,
+      rgba(167,139,250,.05) 60px
+    );
+    pointer-events: none;
+  }
 
-        .btn-header {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 24px;
-            background: white;
-            color: #6d28d9;
-            font-weight: 700;
-            border-radius: 30px;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-            transition: transform 0.2s ease;
-            text-decoration: none;
-        }
+  .hero-content { position: relative; z-index: 2; }
 
-        .btn-header:hover {
-            transform: translateY(-3px);
-        }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: .24em; text-transform: uppercase;
+    color: var(--lila-400);
+    border: 1px solid var(--lila-300);
+    background: rgba(167,139,250,.06);
+    padding: 5px 14px; border-radius: 20px;
+    margin-bottom: 26px;
+    animation: fadeUp .7s .1s ease both;
+  }
+  .pulse-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--lila-400);
+    animation: blink 2s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
 
-        header::after {
-            content: "";
-            display: block;
-            width: 90px;
-            height: 4px;
-            background: #c4b5fd;
-            margin: 25px auto 0;
-            border-radius: 2px;
-        }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(58px, 6.5vw, 96px);
+    font-weight: 700; line-height: .96;
+    color: var(--lila-800);
+    margin-bottom: 8px;
+    animation: fadeUp .7s .2s ease both;
+  }
+  .hero-name em { font-style: italic; color: var(--lila-600); }
 
-        section {
-            padding: 30px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
+  .hero-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--lila-400); margin-bottom: 28px;
+    animation: fadeUp .7s .3s ease both;
+  }
 
-        h2 {
-            color: #6d28d9;
-            border-left: 6px solid #a78bfa;
-            padding-left: 12px;
-            font-weight: 700;
-        }
+  .hero-desc {
+    font-size: 15.5px; line-height: 1.85;
+    color: #4a3060; font-weight: 300;
+    max-width: 460px; margin-bottom: 44px;
+    animation: fadeUp .7s .4s ease both;
+  }
 
-        .project {
-            background: white;
-            padding: 25px;
-            margin: 20px 0;
-            border-radius: 12px;
-            border-left: 6px solid #c4b5fd;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+  .hero-ctas {
+    display: flex; gap: 14px; flex-wrap: wrap;
+    animation: fadeUp .7s .5s ease both;
+  }
 
-        .project:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-        }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--lila-800); color: white;
+    padding: 13px 28px; border-radius: 4px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    text-decoration: none; border: 2px solid var(--lila-800);
+    transition: all .3s;
+  }
+  .btn-primary:hover {
+    background: var(--lila-700); border-color: var(--lila-700);
+    color: white; transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(61,26,120,.25);
+  }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--lila-800);
+    padding: 13px 28px; border-radius: 4px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    text-decoration: none; border: 2px solid var(--lila-300);
+    transition: all .3s;
+  }
+  .btn-secondary:hover {
+    border-color: var(--lila-400);
+    background: rgba(167,139,250,.07);
+    color: var(--lila-700); transform: translateY(-2px);
+  }
 
-        .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 18px;
-            background: #6d28d9;
-            color: white;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background 0.2s ease;
-        }
+  /* orb */
+  .hero-visual {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+    animation: fadeUp .7s .3s ease both;
+  }
+  .orb {
+    width: clamp(280px, 30vw, 400px);
+    height: clamp(280px, 30vw, 400px);
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 35%,
+      #c4b5fd 0%, #7c3aed 30%, #4c1d95 62%, #1e0a40 100%);
+    box-shadow: 0 0 100px rgba(124,58,237,.28), 0 0 40px rgba(124,58,237,.12);
+    position: relative;
+    animation: orbFloat 7s ease-in-out infinite;
+  }
+  .orb::before {
+    content: '';
+    position: absolute; top: 17%; left: 22%;
+    width: 26%; height: 20%;
+    background: radial-gradient(circle, rgba(255,255,255,.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .orb-ring {
+    position: absolute; inset: -22px;
+    border-radius: 50%;
+    border: 1px dashed rgba(167,139,250,.25);
+    animation: spin 22s linear infinite;
+  }
+  .orb-ring::before {
+    content: '';
+    position: absolute; top: -5px; left: 50%;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--lila-300); transform: translateX(-50%);
+  }
+  @keyframes orbFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-16px)} }
+  @keyframes spin { from{transform:rotate(0)} to{transform:rotate(360deg)} }
 
-        .btn:hover {
-            background: #4c1d95;
-        }
+  .hero-scroll {
+    position: absolute; bottom: 38px; left: 60px;
+    display: flex; align-items: center; gap: 12px;
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--lila-300);
+    animation: fadeUp .7s .9s ease both;
+  }
+  .scroll-line {
+    width: 40px; height: 1px; background: var(--lila-300);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%,100%{opacity:.4; width:40px} 50%{opacity:1; width:60px}
+  }
 
-        /* Tarjeta de contacto */
-        .contact-card {
-            margin-top: 20px;
-        }
+  /* ── STATS ── */
+  .stats-row {
+    display: grid; grid-template-columns: repeat(4,1fr);
+    gap: 1px; background: var(--lila-200);
+    border-top: 1px solid var(--lila-200);
+    border-bottom: 1px solid var(--lila-200);
+  }
+  .stat {
+    background: var(--cream); padding: 40px 30px;
+    text-align: center; transition: background .3s;
+  }
+  .stat:hover { background: rgba(167,139,250,.05); }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 50px; line-height: 1;
+    color: var(--lila-800); margin-bottom: 8px;
+  }
+  .stat-num span { font-size: 26px; color: var(--gold); }
+  .stat-label {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: .2em; text-transform: uppercase; color: var(--lila-400);
+  }
 
-        .contact-box {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 6px solid #a78bfa;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+  /* ── DISPONIBILIDAD ── */
+  .avail-strip {
+    background: var(--lila-50);
+    border-top: 1px solid var(--lila-200);
+    border-bottom: 1px solid var(--lila-200);
+    padding: 28px 60px;
+    display: flex; align-items: center; gap: 18px;
+  }
+  .avail-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #22c55e; flex-shrink: 0;
+    box-shadow: 0 0 0 4px rgba(34,197,94,.18);
+    animation: glowDot 2s ease-in-out infinite;
+  }
+  @keyframes glowDot {
+    0%,100%{box-shadow:0 0 0 4px rgba(34,197,94,.18)}
+    50%{box-shadow:0 0 0 7px rgba(34,197,94,.08)}
+  }
+  .avail-text {
+    font-size: 14px; color: #4a3060; font-weight: 300; line-height: 1.6;
+    flex: 1;
+  }
+  .avail-text strong { color: var(--lila-700); font-weight: 500; }
+  .avail-text a { color: var(--lila-600); font-weight: 500; text-decoration: none; }
+  .avail-text a:hover { color: var(--lila-400); }
 
-        .contact-box:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-        }
+  /* ── BANDA PERFIL ── */
+  .profile-band {
+    background: var(--lila-800); padding: 52px 60px;
+    display: grid; grid-template-columns: auto 1fr auto;
+    gap: 52px; align-items: center;
+  }
+  .profile-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 700; color: white; line-height: 1.15;
+  }
+  .profile-name span {
+    font-family: 'DM Mono', monospace; display: block;
+    font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--lila-300); font-weight: 300; margin-bottom: 6px;
+  }
+  .profile-bio {
+    font-size: 14.5px; line-height: 1.8;
+    color: rgba(255,255,255,.65); font-weight: 300;
+  }
+  .profile-links { display: flex; flex-direction: column; gap: 10px; }
+  .profile-link {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: .1em;
+    color: var(--lila-300); text-decoration: none;
+    padding: 9px 16px;
+    border: 1px solid rgba(196,181,253,.2); border-radius: 4px;
+    transition: all .3s;
+  }
+  .profile-link:hover {
+    background: rgba(255,255,255,.08);
+    border-color: rgba(196,181,253,.5);
+    color: white; transform: translateX(4px);
+  }
+  .profile-link svg { width: 14px; height: 14px; flex-shrink: 0; fill: currentColor; }
 
-        .contact-box p {
-            margin: 10px 0;
-            font-size: 16px;
-        }
+  /* ── SECTION HEADER ── */
+  .sec-head {
+    padding: 86px 60px 44px;
+    display: flex; justify-content: space-between; align-items: flex-end;
+  }
+  .sec-left { display: flex; align-items: flex-end; gap: 0; }
+  .sec-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 108px; color: rgba(167,139,250,.1);
+    line-height: .82; margin-right: 22px; user-select: none;
+  }
+  .sec-titles h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 3.5vw, 48px);
+    color: var(--lila-800); line-height: 1.08;
+  }
+  .sec-titles h2 em { font-style: italic; color: var(--lila-600); }
+  .sec-titles p {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: var(--lila-400); margin-top: 6px;
+  }
+  .sec-more {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: .16em; text-transform: uppercase;
+    color: var(--lila-600); text-decoration: none;
+    display: flex; align-items: center; gap: 7px;
+    border-bottom: 1px solid var(--lila-200); padding-bottom: 3px;
+    transition: all .3s;
+  }
+  .sec-more:hover { color: var(--lila-400); gap: 12px; border-color: var(--lila-400); }
 
-        .contact-box a {
-            color: #6d28d9;
-            font-weight: 600;
-            text-decoration: none;
-        }
+  /* ── PROYECTOS GRID ── */
+  .projects-grid {
+    padding: 0 60px 80px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 16px;
+  }
 
-        footer {
-            text-align: center;
-            padding: 25px;
-            background: #6d28d9;
-            color: white;
-            margin-top: 40px;
-            border-top-left-radius: 40px;
-            border-top-right-radius: 40px;
-        }
-    </style>
+  .pcard {
+    background: white;
+    border: 1px solid rgba(196,181,253,.18);
+    border-radius: 6px; padding: 32px;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: all .35s;
+    opacity: 0; transform: translateY(16px);
+  }
+  .pcard.visible { opacity: 1; transform: translateY(0); transition: opacity .55s ease, transform .55s ease, box-shadow .35s, border-color .35s; }
+  .pcard::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--lila-700), var(--lila-400));
+    transform: scaleX(0); transform-origin: left; transition: transform .35s;
+  }
+  .pcard:hover { box-shadow: 0 14px 44px rgba(91,33,182,.11); transform: translateY(-5px); }
+  .pcard:hover::after { transform: scaleX(1); }
+
+  /* card oscura (destacada) */
+  .pcard-dark {
+    background: var(--lila-800);
+  }
+  .pcard-dark .pcard-cat { color: var(--lila-300); }
+  .pcard-dark .pcard-title { color: white; }
+  .pcard-dark .pcard-desc { color: rgba(255,255,255,.62); }
+  .pcard-dark .pcard-tech span {
+    background: rgba(255,255,255,.07);
+    border-color: rgba(196,181,253,.25); color: var(--lila-200);
+  }
+  .pcard-dark .pcard-link { color: var(--lila-200); border-color: rgba(196,181,253,.3); }
+  .pcard-dark .pcard-link:hover { color: white; border-color: rgba(255,255,255,.5); }
+  .pcard-dark::after { background: linear-gradient(90deg, var(--gold), var(--gold-lt)); }
+
+  .pcard-span2 { grid-column: span 2; }
+  .pcard-span2 .pcard-title { font-size: 28px !important; }
+
+  .pcard-cat {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: .2em; text-transform: uppercase;
+    color: var(--lila-400); margin-bottom: 14px;
+  }
+  .pcard-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; color: var(--lila-800);
+    line-height: 1.2; margin-bottom: 12px;
+  }
+  .pcard-desc {
+    font-size: 13.5px; line-height: 1.75; color: #5a4070;
+    font-weight: 300; flex: 1; margin-bottom: 22px;
+  }
+  .pcard-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 22px; }
+  .pcard-tech span {
+    font-family: 'DM Mono', monospace; font-size: 9px;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--lila-700); border: 1px solid var(--lila-200);
+    background: var(--lila-50); padding: 3px 9px; border-radius: 2px;
+  }
+  .pcard-link {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--lila-600); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+    border-bottom: 1px solid var(--lila-200); padding-bottom: 2px;
+    transition: all .25s; align-self: flex-start;
+  }
+  .pcard-link:hover { color: var(--lila-400); gap: 10px; border-color: var(--lila-400); }
+
+  /* ── CERTIFICACIÓN ── */
+  .certs-wrap {
+    padding: 0 60px 80px;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;
+  }
+  .cert-card {
+    background: var(--lila-900);
+    border: 1px solid rgba(212,168,71,.2);
+    border-radius: 6px; padding: 36px 32px;
+    position: relative; overflow: hidden;
+    transition: transform .35s, box-shadow .35s;
+    opacity: 0; transform: translateY(16px);
+  }
+  .cert-card.visible { opacity:1; transform:translateY(0); transition: opacity .55s ease, transform .55s ease, box-shadow .35s; }
+  .cert-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-lt), var(--gold));
+  }
+  .cert-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(30,10,64,.3); }
+  .cert-issuer {
+    font-family: 'DM Mono', monospace; font-size: 9px;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 10px;
+  }
+  .cert-icon { font-size: 36px; line-height: 1; margin-bottom: 14px; }
+  .cert-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700; color: white;
+    line-height: 1.2; margin-bottom: 12px;
+  }
+  .cert-title em { font-style: italic; color: var(--lila-300); }
+  .cert-desc {
+    font-size: 13px; line-height: 1.75;
+    color: rgba(255,255,255,.58); font-weight: 300; margin-bottom: 18px;
+  }
+  .cert-tag {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-family: 'DM Mono', monospace; font-size: 9px;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid rgba(212,168,71,.3);
+    background: rgba(212,168,71,.06); padding: 3px 10px; border-radius: 2px;
+    margin-right: 5px; margin-bottom: 5px; display: inline-flex;
+  }
+
+  .cert-next {
+    background: transparent;
+    border: 1px dashed rgba(167,139,250,.3);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 40px 28px;
+    border-radius: 6px;
+    opacity: 0; transform: translateY(16px);
+  }
+  .cert-next.visible { opacity:1; transform:translateY(0); transition: opacity .55s ease, transform .55s ease; }
+  .cert-next-icon { font-size: 40px; margin-bottom: 14px; opacity: .4; }
+  .cert-next p {
+    font-size: 13px; color: #6b4f8a; font-weight: 300;
+    line-height: 1.7; font-style: italic;
+  }
+
+  /* ── HABILIDADES ── */
+  .skills-section {
+    padding: 0 60px 80px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start;
+  }
+  .sk-row { margin-bottom: 28px; }
+  .sk-header {
+    display: flex; justify-content: space-between;
+    align-items: baseline; margin-bottom: 9px;
+  }
+  .sk-label {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: .13em; text-transform: uppercase; color: var(--lila-800);
+  }
+  .sk-pct {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; color: var(--lila-400);
+  }
+  .sk-track {
+    height: 3px; background: var(--lila-100); border-radius: 2px; overflow: hidden;
+  }
+  .sk-fill {
+    height: 100%; border-radius: 2px; width: 0;
+    background: linear-gradient(90deg, var(--lila-800), var(--lila-400));
+    transition: width 1.1s ease;
+  }
+  .tools-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 36px; }
+  .tool {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: .11em; text-transform: uppercase;
+    padding: 7px 16px; border-radius: 30px;
+    color: var(--lila-800); background: rgba(167,139,250,.08);
+    border: 1px solid rgba(167,139,250,.22); transition: all .25s; cursor: default;
+  }
+  .tool:hover {
+    background: var(--lila-800); color: white;
+    border-color: var(--lila-800); transform: translateY(-2px);
+  }
+  .skills-text p {
+    font-size: 15px; line-height: 1.88; color: #4a3060;
+    font-weight: 300; margin-bottom: 18px;
+  }
+  .skills-text p strong { color: var(--lila-700); font-weight: 500; }
+  .skills-text p em { font-style: italic; }
+  .skills-note {
+    border-left: 3px solid var(--lila-300); padding-left: 18px;
+    font-size: 13.5px; font-style: italic; color: #6b4f8a; line-height: 1.75;
+  }
+
+  /* ── CONTACTO ── */
+  .contact-wrap {
+    margin: 0 60px 60px;
+    background: var(--lila-900);
+    border-radius: 8px; padding: 72px 64px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 72px; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .contact-wrap::before {
+    content: ''; position: absolute; right: -80px; top: -80px;
+    width: 380px; height: 380px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,58,237,.2) 0%, transparent 70%);
+  }
+  .contact-wrap::after {
+    content: ''; position: absolute; left: 28%; bottom: -70px;
+    width: 180px; height: 180px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,168,71,.06) 0%, transparent 70%);
+  }
+  .contact-left { position: relative; z-index: 2; }
+  .contact-left h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 3vw, 46px); color: white;
+    line-height: 1.1; margin-bottom: 18px;
+  }
+  .contact-left h2 em { font-style: italic; color: var(--lila-300); }
+  .contact-left p {
+    font-size: 14.5px; line-height: 1.82;
+    color: rgba(255,255,255,.58); font-weight: 300;
+  }
+  .contact-right {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .citem {
+    display: flex; align-items: center; gap: 15px;
+    padding: 17px 20px;
+    background: rgba(255,255,255,.055);
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 5px; text-decoration: none; color: white;
+    transition: all .3s;
+  }
+  .citem:hover {
+    background: rgba(255,255,255,.1);
+    border-color: rgba(196,181,253,.3);
+    transform: translateX(6px); color: white;
+  }
+  .citem-icon {
+    width: 36px; height: 36px; border-radius: 4px;
+    background: rgba(167,139,250,.2);
+    display: grid; place-items: center;
+    font-size: 15px; flex-shrink: 0; color: var(--lila-300);
+  }
+  .citem-label {
+    font-family: 'DM Mono', monospace; font-size: 9px;
+    letter-spacing: .2em; text-transform: uppercase;
+    color: var(--lila-400); margin-bottom: 2px;
+  }
+  .citem-val { font-size: 13px; color: rgba(255,255,255,.82); font-weight: 300; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 34px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--lila-100);
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; color: var(--lila-800);
+  }
+  .footer-copy {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--lila-400);
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px; margin: 0 60px;
+    background: linear-gradient(90deg, transparent, var(--lila-200), transparent);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 18px 24px; }
+    .nav-links { gap: 20px; }
+    .hero { grid-template-columns: 1fr; padding: 110px 24px 70px; gap: 32px; }
+    .hero-visual { order: -1; }
+    .orb { width: 220px; height: 220px; }
+    .stats-row { grid-template-columns: repeat(2,1fr); }
+    .avail-strip { padding: 22px 24px; }
+    .profile-band { grid-template-columns: 1fr; padding: 40px 24px; gap: 24px; }
+    .sec-head { padding: 60px 24px 32px; flex-direction: column; gap: 16px; align-items: flex-start; }
+    .projects-grid { grid-template-columns: 1fr; padding: 0 24px 60px; }
+    .pcard-span2 { grid-column: span 1; }
+    .pcard-span2 .pcard-title { font-size: 22px !important; }
+    .certs-wrap { grid-template-columns: 1fr; padding: 0 24px 60px; }
+    .skills-section { grid-template-columns: 1fr; padding: 0 24px 60px; gap: 40px; }
+    .contact-wrap { margin: 0 24px 40px; padding: 44px 28px; grid-template-columns: 1fr; gap: 36px; }
+    .divider { margin: 0 24px; }
+    footer { padding: 28px 24px; flex-direction: column; gap: 8px; }
+  }
+</style>
 </head>
-
 <body>
 
-    <header>
-        <h1>Portafolio de Karin García</h1>
-        <h3 class="subtitulo">Desarrollo & Ciencia de Datos</h3>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">KG · Portfolio</div>
+  <ul class="nav-links">
+    <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#certificaciones">Certificaciones</a></li>
+    <li><a href="#habilidades">Habilidades</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
 
-        <p class="intro-header">
-            Transformo datos en soluciones prácticas mediante análisis, modelos predictivos
-            y desarrollo web. Este es un espacio donde comparto lo que he creado con dedicación
-            y mucho estilo lila.
-        </p>
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="pulse-dot"></span>
+      En formación · Bootcamp activo
+    </div>
+    <h1 class="hero-name">Karin<br><em>García</em></h1>
+    <p class="hero-role">Datos · IA · Desarrollo Web</p>
+    <p class="hero-desc">
+      Me apasiona analizar datos, encontrar patrones y construir soluciones
+      basadas en evidencia. Estoy aprendiendo con dedicación real y quiero
+      convertirme en la mejor versión de mí misma en cada proyecto.
+      Honesta, curiosa y lista para trabajar.
+    </p>
+    <div class="hero-ctas">
+      <a href="#proyectos" class="btn-primary">Ver mis proyectos →</a>
+      <a href="#contacto" class="btn-secondary">Hablemos</a>
+    </div>
+  </div>
 
-        <a class="btn-header" href="#proyectos">Ver mis proyectos</a>
-    </header>
+  <div class="hero-visual">
+    <div class="orb"><div class="orb-ring"></div></div>
+  </div>
 
-    <section class="contact-card">
-        <h2>Información de contacto</h2>
-        <div class="contact-box">
-            <p><strong>Nombre:</strong> Karin García Salazar</p>
-            <p><strong>Email:</strong> <a href="mailto:k.garciasalazar01@gmail.com">k.garciasalazar01@gmail.com</a></p>
-            <p><strong>GitHub:</strong>
-                <a href="https://github.com/kgarciasalazar01" target="_blank">
-                    github.com/kgarciasalazar01
-                </a>
-            </p>
-            <p><strong>LinkedIn:</strong>
-                <a href="https://www.linkedin.com/in/karin-garcía-salazar-4797b675/" target="_blank">
-                    linkedin.com/in/karin-garcía-salazar-4797b675
-                </a>
-            </p>
-            <p><strong>Sobre mí:</strong> Me gusta analizar datos, identificar patrones y aplicar distintos modelos
-                predictivos para crear soluciones prácticas y basadas en evidencia.</p>
+  <div class="hero-scroll">
+    <span class="scroll-line"></span>
+    scroll
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat">
+    <div class="stat-num">5<span>+</span></div>
+    <div class="stat-label">Proyectos realizados</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">2<span></span></div>
+    <div class="stat-label">Certificaciones</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">9<span>+</span></div>
+    <div class="stat-label">Tecnologías aprendidas</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">100<span>%</span></div>
+    <div class="stat-label">Compromiso y estilo lila</div>
+  </div>
+</div>
+
+<!-- DISPONIBILIDAD -->
+<div class="avail-strip">
+  <span class="avail-dot"></span>
+  <p class="avail-text">
+    <strong>En formación activa · Abierta a proyectos.</strong>
+    Soy honesta: estoy comenzando mi camino profesional, pero lo hago con dedicación real.
+    Si tienes un proyecto de datos, análisis o desarrollo y buscas a alguien que aprende
+    rápido y se compromete al 100%, <a href="#contacto">hablemos.</a>
+  </p>
+</div>
+
+<!-- PERFIL -->
+<div class="profile-band">
+  <div class="profile-name">
+    <span>Quién soy</span>
+    Karin García<br>Salazar
+  </div>
+  <p class="profile-bio">
+    Analista de datos en formación con certificación en IA Generativa (U. de Chile).
+    Me especializo en convertir datos en insights claros y accionables.
+    Sigo aprendiendo cada día con un objetivo claro: ser la mejor en lo que hago.
+  </p>
+  <div class="profile-links">
+    <a href="mailto:k.garciasalazar01@gmail.com" class="profile-link">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      k.garciasalazar01@gmail.com
+    </a>
+    <a href="https://github.com/kgarciasalazar01" target="_blank" class="profile-link">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85 0 1.71.11 2.51.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
+      github.com/kgarciasalazar01
+    </a>
+    <a href="https://www.linkedin.com/in/karin-garcía-salazar-4797b675/" target="_blank" class="profile-link">
+      <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.44v6.3zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.11 20.45H3.56V9h3.55v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</div>
+
+<!-- ═══ PROYECTOS BOOTCAMP ═══ -->
+<div id="proyectos">
+  <div class="sec-head">
+    <div class="sec-left">
+      <span class="sec-num">01</span>
+      <div class="sec-titles">
+        <h2>Proyectos de <em>desarrollo web</em></h2>
+        <p>Bootcamp · Lo que construí</p>
+      </div>
+    </div>
+    <a href="https://github.com/kgarciasalazar01" target="_blank" class="sec-more">Ver GitHub →</a>
+  </div>
+
+  <div class="projects-grid">
+    <!-- Destacado -->
+    <div class="pcard pcard-dark pcard-span2">
+      <div class="pcard-cat">★ Proyecto principal · Python + Flask</div>
+      <div class="pcard-title">Alke Wallet</div>
+      <p class="pcard-desc">
+        Aplicación web completa para gestionar usuarios, transacciones y saldos.
+        Permite ingresar ingresos y gastos, visualizar el balance en tiempo real
+        y revisar el historial de movimientos. Mi proyecto más completo del bootcamp:
+        estructura backend/frontend separada, rutas, formularios y lógica de datos
+        construida desde cero.
+      </p>
+      <div class="pcard-tech">
+        <span>Python</span><span>Flask</span><span>Bootstrap</span><span>HTML</span><span>CSS</span>
+      </div>
+      <a href="https://github.com/kgarciasalazar01" target="_blank" class="pcard-link">Ver en GitHub →</a>
+    </div>
+
+    <div class="pcard">
+      <div class="pcard-cat">Proyecto inicial · Frontend</div>
+      <div class="pcard-title">Wallet HTML</div>
+      <p class="pcard-desc">
+        Billetera digital construida con HTML y CSS. Mi primer proyecto real:
+        estructura web, formularios y diseño desde la base.
+      </p>
+      <div class="pcard-tech"><span>HTML</span><span>CSS</span></div>
+      <a href="https://github.com/kgarciasalazar01" target="_blank" class="pcard-link">Ver en GitHub →</a>
+    </div>
+
+    <div class="pcard">
+      <div class="pcard-cat">Bases de datos</div>
+      <div class="pcard-title">Proyecto SQL</div>
+      <p class="pcard-desc">
+        Diseño relacional, tablas, consultas y normalización.
+        Primer acercamiento serio a la lógica estructurada de datos.
+      </p>
+      <div class="pcard-tech"><span>SQL</span></div>
+      <a href="https://github.com/kgarciasalazar01" target="_blank" class="pcard-link">Ver en GitHub →</a>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══ PROYECTOS DATA SCIENCE ═══ -->
+<div>
+  <div class="sec-head">
+    <div class="sec-left">
+      <span class="sec-num">02</span>
+      <div class="sec-titles">
+        <h2>Ciencia de <em>datos</em></h2>
+        <p>Análisis & Machine Learning</p>
+      </div>
+    </div>
+    <a href="https://github.com/kgarciasalazar01" target="_blank" class="sec-more">Ver GitHub →</a>
+  </div>
+
+  <div class="projects-grid">
+    <div class="pcard pcard-dark pcard-span2">
+      <div class="pcard-cat">★ Análisis exploratorio</div>
+      <div class="pcard-title">EDA — Exploración y Visualización de Datos</div>
+      <p class="pcard-desc">
+        Ciclo completo de análisis: limpieza, manejo de valores nulos,
+        estadísticas descriptivas y visualización de patrones. El proyecto
+        donde los datos me hablaron por primera vez y yo aprendí a escucharlos.
+      </p>
+      <div class="pcard-tech"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
+      <a href="https://github.com/kgarciasalazar01" target="_blank" class="pcard-link">Ver en GitHub →</a>
+    </div>
+
+    <div class="pcard">
+      <div class="pcard-cat">Machine Learning</div>
+      <div class="pcard-title">Modelo Predictivo</div>
+      <p class="pcard-desc">
+        Regresión/clasificación con preparación de datos, entrenamiento,
+        evaluación de métricas y visualización. Introducción real al pipeline de ML.
+      </p>
+      <div class="pcard-tech"><span>Python</span><span>Scikit-learn</span></div>
+      <a href="https://github.com/kgarciasalazar01" target="_blank" class="pcard-link">Ver en GitHub →</a>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══ CERTIFICACIONES ═══ -->
+<div id="certificaciones">
+  <div class="sec-head">
+    <div class="sec-left">
+      <span class="sec-num">03</span>
+      <div class="sec-titles">
+        <h2>Mis <em>certificaciones</em></h2>
+        <p>Formación complementaria</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="certs-wrap">
+    <!-- IA Generativa -->
+    <div class="cert-card">
+      <div class="cert-issuer">★ Universidad de Chile</div>
+      <div class="cert-icon">🤖</div>
+      <h3 class="cert-title">Inteligencia Artificial <em>Generativa</em></h3>
+      <p class="cert-desc">
+        Fundamentos y aplicaciones de IA Generativa: modelos de lenguaje,
+        técnicas de prompting, casos de uso reales y ética en IA. Formación
+        académica que amplía mi visión en ciencia de datos.
+      </p>
+      <div>
+        <span class="cert-tag">✓ Certificado</span>
+        <span class="cert-tag">U. de Chile</span>
+        <span class="cert-tag">IA · LLMs</span>
+      </div>
+    </div>
+
+    <!-- Bootcamp -->
+    <div class="cert-card">
+      <div class="cert-issuer">⚡ Bootcamp intensivo</div>
+      <div class="cert-icon">💻</div>
+      <h3 class="cert-title">Desarrollo Web & <em>Ciencia de Datos</em></h3>
+      <p class="cert-desc">
+        Formación intensiva en Python/Flask, bases de datos SQL y fundamentos
+        de Machine Learning. Proyectos reales desde el primer día. En curso activo.
+      </p>
+      <div>
+        <span class="cert-tag">⏳ En curso</span>
+        <span class="cert-tag">Python · SQL</span>
+        <span class="cert-tag">ML · Web</span>
+      </div>
+    </div>
+
+    <!-- Próximo -->
+    <div class="cert-next">
+      <div class="cert-next-icon">🏆</div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--lila-400);margin-bottom:10px;">Próximo objetivo</div>
+      <p>Seguir aprendiendo, certificándome y construyendo proyectos que importen de verdad.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══ HABILIDADES ═══ -->
+<div id="habilidades">
+  <div class="sec-head">
+    <div class="sec-left">
+      <span class="sec-num">04</span>
+      <div class="sec-titles">
+        <h2>Mis <em>habilidades</em></h2>
+        <p>Nivel actual · Con honestidad</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="skills-section">
+    <div id="skillsCol">
+      <div class="sk-row">
+        <div class="sk-header"><span class="sk-label">Python / Ciencia de datos</span><span class="sk-pct">80</span></div>
+        <div class="sk-track"><div class="sk-fill" data-w="80"></div></div>
+      </div>
+      <div class="sk-row">
+        <div class="sk-header"><span class="sk-label">SQL & Bases de datos</span><span class="sk-pct">75</span></div>
+        <div class="sk-track"><div class="sk-fill" data-w="75"></div></div>
+      </div>
+      <div class="sk-row">
+        <div class="sk-header"><span class="sk-label">Análisis & Visualización</span><span class="sk-pct">78</span></div>
+        <div class="sk-track"><div class="sk-fill" data-w="78"></div></div>
+      </div>
+      <div class="sk-row">
+        <div class="sk-header"><span class="sk-label">Desarrollo web · Flask</span><span class="sk-pct">65</span></div>
+        <div class="sk-track"><div class="sk-fill" data-w="65"></div></div>
+      </div>
+      <div class="sk-row">
+        <div class="sk-header"><span class="sk-label">Machine Learning</span><span class="sk-pct">60</span></div>
+        <div class="sk-track"><div class="sk-fill" data-w="60"></div></div>
+      </div>
+      <div class="sk-row">
+        <div class="sk-header"><span class="sk-label">IA Generativa & Prompting</span><span class="sk-pct">70</span></div>
+        <div class="sk-track"><div class="sk-fill" data-w="70"></div></div>
+      </div>
+      <div class="tools-wrap">
+        <span class="tool">Python</span><span class="tool">Pandas</span>
+        <span class="tool">Scikit-learn</span><span class="tool">Matplotlib</span>
+        <span class="tool">SQL</span><span class="tool">Flask</span>
+        <span class="tool">Bootstrap</span><span class="tool">HTML · CSS</span>
+        <span class="tool">Git</span><span class="tool">IA Generativa</span>
+      </div>
+    </div>
+
+    <div class="skills-text">
+      <p>
+        Estos porcentajes son reales. Prefiero ser honesta sobre donde estoy
+        hoy que inflar números que no representan nada.
+        Lo que sí te garantizo: <strong>aprendo rápido y me comprometo al máximo.</strong>
+      </p>
+      <p>
+        Mi enfoque principal es la <strong>ciencia de datos</strong>: entender los datos,
+        limpiarlos, explorarlos y extraer insights que sirvan para tomar decisiones reales.
+      </p>
+      <p>
+        La certificación en <strong>IA Generativa</strong> de la U. de Chile complementa
+        esa visión. Quiero construir soluciones que combinen análisis sólido con
+        las posibilidades que abre la inteligencia artificial.
+      </p>
+      <div class="skills-note">
+        Sigo aprendiendo cada día. Con honestidad, curiosidad y
+        <em>muchas ganas de llegar lejos.</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CONTACTO ═══ -->
+<section id="contacto">
+  <div class="contact-wrap">
+    <div class="contact-left">
+      <h2>¿Tienes un proyecto<br>con <em>datos</em>?</h2>
+      <p>
+        Abierta a colaboraciones, proyectos freelance o simplemente conversar
+        sobre datos e IA. Si valoras la honestidad y las ganas de crecer,
+        escríbeme — te respondo pronto.
+      </p>
+    </div>
+    <div class="contact-right">
+      <a href="mailto:k.garciasalazar01@gmail.com" class="citem">
+        <div class="citem-icon">✉</div>
+        <div class="flex-grow" style="flex:1">
+          <div class="citem-label">Email</div>
+          <div class="citem-val">k.garciasalazar01@gmail.com</div>
         </div>
-    </section>
-
-    <section>
-        <h2>Proyectos del Bootcamp</h2>
-
-        <!-- 1. Wallet HTML -->
-        <div class="project">
-            <h3>Wallet HTML</h3>
-            <p>Mi primer proyecto del bootcamp. Construí una billetera digital básica utilizando solo HTML y CSS
-                para
-                practicar estructura, formularios y diseño web inicial.</p>
-            <p><strong>Tecnologías:</strong> HTML, CSS</p>
-            <p><a href="URL_DEL_REPO" target="_blank">Ver repositorio</a></p>
+        <span style="color:var(--lila-400)">→</span>
+      </a>
+      <a href="https://github.com/kgarciasalazar01" target="_blank" class="citem">
+        <div class="citem-icon">⌥</div>
+        <div style="flex:1">
+          <div class="citem-label">GitHub</div>
+          <div class="citem-val">github.com/kgarciasalazar01</div>
         </div>
-
-        <!-- 2. Proyecto SQL -->
-        <div class="project">
-            <h3>Proyecto de Bases de Datos</h3>
-            <p>Proyecto enfocado en diseño de bases de datos, creación de tablas, relaciones, consultas SQL y
-                normalización. Representa mi avance hacia la lógica estructurada y manejo de datos.</p>
-            <p><strong>Tecnologías:</strong> SQL</p>
-            <p><a href="URL_DEL_REPO" target="_blank">Ver repositorio</a></p>
+        <span style="color:var(--lila-400)">→</span>
+      </a>
+      <a href="https://www.linkedin.com/in/karin-garcía-salazar-4797b675/" target="_blank" class="citem">
+        <div class="citem-icon">in</div>
+        <div style="flex:1">
+          <div class="citem-label">LinkedIn</div>
+          <div class="citem-val">karin-garcía-salazar</div>
         </div>
+        <span style="color:var(--lila-400)">→</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-        <!-- 3. Alke Wallet Python -->
-        <div class="project">
-            <h3>Alke Wallet (Python + Bootstrap)</h3>
-            <p>Aplicación web completa para gestionar usuarios, transacciones y saldos. Incluye rutas, validaciones,
-                plantillas HTML y diseño con Bootstrap. Es mi proyecto más completo del bootcamp.</p>
-            <p><strong>Tecnologías:</strong> Python, Flask, Bootstrap, HTML, CSS</p>
-            <p><a href="URL_DEL_REPO" target="_blank">Ver repositorio</a></p>
-        </div>
-    </section>
+<footer>
+  <div class="footer-logo">Karin García</div>
+  <div class="footer-copy">© 2026 · Hecho con dedicación y estilo lila</div>
+</footer>
 
-    <section>
-        <h2>Proyectos de Ciencia de Datos</h2>
+<script>
+  // Skill bars
+  const obs1 = new IntersectionObserver(e => {
+    e.forEach(entry => {
+      if (entry.isIntersecting)
+        entry.target.querySelectorAll('.sk-fill').forEach(b => b.style.width = b.dataset.w + '%');
+    });
+  }, { threshold: 0.3 });
+  const sc = document.getElementById('skillsCol');
+  if (sc) obs1.observe(sc);
 
-        <!-- 4. EDA -->
-        <div class="project">
-            <h3>Análisis Exploratorio de Datos (EDA)</h3>
-            <p>Proyecto donde realicé limpieza, exploración y visualización de datos. Incluye manejo de valores
-                nulos,
-                estadísticas descriptivas y gráficos para identificar patrones.</p>
-            <p><strong>Tecnologías:</strong> Python, Pandas, Matplotlib</p>
-            <p><a href="URL_DEL_REPO" target="_blank">Ver repositorio</a></p>
-        </div>
-
-        <!-- 5. Machine Learning -->
-        <div class="project">
-            <h3>Proyecto de Machine Learning</h3>
-            <p>Modelo predictivo simple para practicar regresión o clasificación. Incluye preparación de datos,
-                entrenamiento, evaluación y visualización de resultados.</p>
-            <p><strong>Tecnologías:</strong> Python, Scikit-learn</p>
-            <p><a href="URL_DEL_REPO" target="_blank">Ver repositorio</a></p>
-        </div>
-    </section>
-
-    <section>
-        <h2>Caso de estudio: Alke Wallet</h2>
-        <p>Desarrollé una aplicación web tipo Wallet utilizando Python, Flask y Bootstrap. El objetivo era permitir
-            a
-            los usuarios registrar, visualizar y gestionar sus movimientos financieros. La aplicación permite
-            ingresar
-            ingresos y gastos, ver el balance actualizado y revisar el historial de transacciones.</p>
-
-        <p>Este proyecto me permitió comprender cómo se estructura una aplicación web desde cero, separar
-            correctamente
-            la lógica del backend de la interfaz, manejar rutas, formularios y procesamiento de datos, y mejorar mi
-            pensamiento lógico.</p>
-    </section>
-
-    <footer>
-        <p>© 2026 - Portafolio de Karin García</p>
-    </footer>
-
+  // Cards & elementos fade
+  const obs2 = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting)
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.pcard, .cert-card, .cert-next').forEach(el => obs2.observe(el));
+</script>
 </body>
-
 </html>
