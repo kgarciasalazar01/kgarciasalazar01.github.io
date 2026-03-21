@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Karin García — Datos · IA · Desarrollo</title>
+
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
-    rel="stylesheet">
+    rel="stylesheet"
+  />
+
   <style>
     :root {
       --lila-900: #1e0a40;
@@ -39,15 +41,14 @@
     }
 
     body {
-      font-family: 'DM Sans', sans-serif;
+      font-family: "DM Sans", sans-serif;
       background: var(--cream);
       color: var(--ink);
       overflow-x: hidden;
     }
 
-    /* noise overlay sutil */
     body::before {
-      content: '';
+      content: "";
       position: fixed;
       inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
@@ -55,7 +56,6 @@
       z-index: 999;
     }
 
-    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0;
@@ -68,7 +68,7 @@
     }
 
     nav::before {
-      content: '';
+      content: "";
       position: absolute;
       inset: 0;
       backdrop-filter: blur(14px);
@@ -78,7 +78,7 @@
     }
 
     .nav-logo {
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 12px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -92,25 +92,25 @@
     }
 
     .nav-links a {
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 11px;
       letter-spacing: 0.17em;
       text-transform: uppercase;
       color: var(--lila-800);
       text-decoration: none;
       position: relative;
-      transition: color .25s;
+      transition: color 0.25s;
     }
 
     .nav-links a::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: -3px;
       left: 0;
       width: 0;
       height: 1px;
       background: var(--lila-400);
-      transition: width .3s;
+      transition: width 0.3s;
     }
 
     .nav-links a:hover {
@@ -121,7 +121,6 @@
       width: 100%;
     }
 
-    /* ── HERO ── */
     .hero {
       min-height: 100vh;
       padding: 130px 60px 80px;
@@ -134,30 +133,33 @@
     }
 
     .hero::before {
-      content: '';
+      content: "";
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 65% 60% at 85% 50%, rgba(124, 58, 237, .11) 0%, transparent 65%),
-        radial-gradient(ellipse 45% 40% at 8% 85%, rgba(91, 33, 182, .05) 0%, transparent 60%);
+        radial-gradient(ellipse 65% 60% at 85% 50%, rgba(124, 58, 237, 0.11) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 40% at 8% 85%, rgba(91, 33, 182, 0.05) 0%, transparent 60%);
       pointer-events: none;
     }
 
-    /* líneas de fondo */
     .hero::after {
-      content: '';
+      content: "";
       position: absolute;
       right: 0;
       top: 0;
       width: 50%;
       height: 100%;
-      background: repeating-linear-gradient(0deg,
-          transparent, transparent 59px,
-          rgba(167, 139, 250, .05) 60px);
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 59px,
+        rgba(167, 139, 250, 0.05) 60px
+      );
       pointer-events: none;
     }
 
-    .hero-content {
+    .hero-content,
+    .hero-visual {
       position: relative;
       z-index: 2;
     }
@@ -166,17 +168,17 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 10px;
-      letter-spacing: .24em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--lila-400);
       border: 1px solid var(--lila-300);
-      background: rgba(167, 139, 250, .06);
+      background: rgba(167, 139, 250, 0.06);
       padding: 5px 14px;
       border-radius: 20px;
       margin-bottom: 26px;
-      animation: fadeUp .7s .1s ease both;
+      animation: fadeUp 0.7s 0.1s ease both;
     }
 
     .pulse-dot {
@@ -188,25 +190,18 @@
     }
 
     @keyframes blink {
-
-      0%,
-      100% {
-        opacity: 1
-      }
-
-      50% {
-        opacity: .3
-      }
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
     }
 
     .hero-name {
-      font-family: 'Playfair Display', serif;
+      font-family: "Playfair Display", serif;
       font-size: clamp(58px, 6.5vw, 96px);
       font-weight: 700;
-      line-height: .96;
+      line-height: 0.96;
       color: var(--lila-800);
       margin-bottom: 8px;
-      animation: fadeUp .7s .2s ease both;
+      animation: fadeUp 0.7s 0.2s ease both;
     }
 
     .hero-name em {
@@ -215,13 +210,13 @@
     }
 
     .hero-role {
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 12px;
-      letter-spacing: .16em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--lila-400);
       margin-bottom: 28px;
-      animation: fadeUp .7s .3s ease both;
+      animation: fadeUp 0.7s 0.3s ease both;
     }
 
     .hero-desc {
@@ -231,31 +226,35 @@
       font-weight: 300;
       max-width: 460px;
       margin-bottom: 44px;
-      animation: fadeUp .7s .4s ease both;
+      animation: fadeUp 0.7s 0.4s ease both;
     }
 
     .hero-ctas {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      animation: fadeUp .7s .5s ease both;
+      animation: fadeUp 0.7s 0.5s ease both;
     }
 
-    .btn-primary {
+    .btn-primary,
+    .btn-secondary {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--lila-800);
-      color: white;
       padding: 13px 28px;
       border-radius: 4px;
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 11px;
-      letter-spacing: .14em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--lila-800);
+      color: white;
       border: 2px solid var(--lila-800);
-      transition: all .3s;
     }
 
     .btn-primary:hover {
@@ -263,62 +262,47 @@
       border-color: var(--lila-700);
       color: white;
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(61, 26, 120, .25);
+      box-shadow: 0 8px 24px rgba(61, 26, 120, 0.25);
     }
 
     .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
       background: transparent;
       color: var(--lila-800);
-      padding: 13px 28px;
-      border-radius: 4px;
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      text-decoration: none;
       border: 2px solid var(--lila-300);
-      transition: all .3s;
     }
 
     .btn-secondary:hover {
       border-color: var(--lila-400);
-      background: rgba(167, 139, 250, .07);
+      background: rgba(167, 139, 250, 0.07);
       color: var(--lila-700);
       transform: translateY(-2px);
     }
 
-    /* orb */
     .hero-visual {
-      position: relative;
-      z-index: 2;
       display: flex;
       align-items: center;
       justify-content: center;
-      animation: fadeUp .7s .3s ease both;
+      animation: fadeUp 0.7s 0.3s ease both;
     }
 
     .orb {
       width: clamp(280px, 30vw, 400px);
       height: clamp(280px, 30vw, 400px);
       border-radius: 50%;
-      background: radial-gradient(circle at 38% 35%,
-          #c4b5fd 0%, #7c3aed 30%, #4c1d95 62%, #1e0a40 100%);
-      box-shadow: 0 0 100px rgba(124, 58, 237, .28), 0 0 40px rgba(124, 58, 237, .12);
+      background: radial-gradient(circle at 38% 35%, #c4b5fd 0%, #7c3aed 30%, #4c1d95 62%, #1e0a40 100%);
+      box-shadow: 0 0 100px rgba(124, 58, 237, 0.28), 0 0 40px rgba(124, 58, 237, 0.12);
       position: relative;
       animation: orbFloat 7s ease-in-out infinite;
     }
 
     .orb::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 17%;
       left: 22%;
       width: 26%;
       height: 20%;
-      background: radial-gradient(circle, rgba(255, 255, 255, .2) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
       border-radius: 50%;
     }
 
@@ -326,12 +310,12 @@
       position: absolute;
       inset: -22px;
       border-radius: 50%;
-      border: 1px dashed rgba(167, 139, 250, .25);
+      border: 1px dashed rgba(167, 139, 250, 0.25);
       animation: spin 22s linear infinite;
     }
 
     .orb-ring::before {
-      content: '';
+      content: "";
       position: absolute;
       top: -5px;
       left: 50%;
@@ -343,25 +327,13 @@
     }
 
     @keyframes orbFloat {
-
-      0%,
-      100% {
-        transform: translateY(0)
-      }
-
-      50% {
-        transform: translateY(-16px)
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-16px); }
     }
 
     @keyframes spin {
-      from {
-        transform: rotate(0)
-      }
-
-      to {
-        transform: rotate(360deg)
-      }
+      from { transform: rotate(0); }
+      to { transform: rotate(360deg); }
     }
 
     .hero-scroll {
@@ -371,12 +343,12 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 10px;
-      letter-spacing: .22em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--lila-300);
-      animation: fadeUp .7s .9s ease both;
+      animation: fadeUp 0.7s 0.9s ease both;
     }
 
     .scroll-line {
@@ -387,20 +359,10 @@
     }
 
     @keyframes scrollPulse {
-
-      0%,
-      100% {
-        opacity: .4;
-        width: 40px
-      }
-
-      50% {
-        opacity: 1;
-        width: 60px
-      }
+      0%, 100% { opacity: 0.4; width: 40px; }
+      50% { opacity: 1; width: 60px; }
     }
 
-    /* ── STATS ── */
     .stats-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -414,15 +376,15 @@
       background: var(--cream);
       padding: 40px 30px;
       text-align: center;
-      transition: background .3s;
+      transition: background 0.3s;
     }
 
     .stat:hover {
-      background: rgba(167, 139, 250, .05);
+      background: rgba(167, 139, 250, 0.05);
     }
 
     .stat-num {
-      font-family: 'Playfair Display', serif;
+      font-family: "Playfair Display", serif;
       font-size: 50px;
       line-height: 1;
       color: var(--lila-800);
@@ -435,14 +397,13 @@
     }
 
     .stat-label {
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 10px;
-      letter-spacing: .2em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--lila-400);
     }
 
-    /* ── DISPONIBILIDAD ── */
     .avail-strip {
       background: var(--lila-50);
       border-top: 1px solid var(--lila-200);
@@ -459,20 +420,13 @@
       border-radius: 50%;
       background: #22c55e;
       flex-shrink: 0;
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, .18);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
       animation: glowDot 2s ease-in-out infinite;
     }
 
     @keyframes glowDot {
-
-      0%,
-      100% {
-        box-shadow: 0 0 0 4px rgba(34, 197, 94, .18)
-      }
-
-      50% {
-        box-shadow: 0 0 0 7px rgba(34, 197, 94, .08)
-      }
+      0%, 100% { box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18); }
+      50% { box-shadow: 0 0 0 7px rgba(34, 197, 94, 0.08); }
     }
 
     .avail-text {
@@ -498,7 +452,6 @@
       color: var(--lila-400);
     }
 
-    /* ── BANDA PERFIL ── */
     .profile-band {
       background: var(--lila-800);
       padding: 52px 60px;
@@ -509,7 +462,7 @@
     }
 
     .profile-name {
-      font-family: 'Playfair Display', serif;
+      font-family: "Playfair Display", serif;
       font-size: 28px;
       font-weight: 700;
       color: white;
@@ -517,10 +470,10 @@
     }
 
     .profile-name span {
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       display: block;
       font-size: 10px;
-      letter-spacing: .2em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--lila-300);
       font-weight: 300;
@@ -530,7 +483,7 @@
     .profile-bio {
       font-size: 14.5px;
       line-height: 1.8;
-      color: rgba(255, 255, 255, .65);
+      color: rgba(255, 255, 255, 0.65);
       font-weight: 300;
     }
 
@@ -544,20 +497,20 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 10px;
-      letter-spacing: .1em;
+      letter-spacing: 0.1em;
       color: var(--lila-300);
       text-decoration: none;
       padding: 9px 16px;
-      border: 1px solid rgba(196, 181, 253, .2);
+      border: 1px solid rgba(196, 181, 253, 0.2);
       border-radius: 4px;
-      transition: all .3s;
+      transition: all 0.3s;
     }
 
     .profile-link:hover {
-      background: rgba(255, 255, 255, .08);
-      border-color: rgba(196, 181, 253, .5);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(196, 181, 253, 0.5);
       color: white;
       transform: translateX(4px);
     }
@@ -569,31 +522,30 @@
       fill: currentColor;
     }
 
-    /* ── SECTION HEADER ── */
     .sec-head {
       padding: 86px 60px 44px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
+      gap: 20px;
     }
 
     .sec-left {
       display: flex;
       align-items: flex-end;
-      gap: 0;
     }
 
     .sec-num {
-      font-family: 'Playfair Display', serif;
+      font-family: "Playfair Display", serif;
       font-size: 108px;
-      color: rgba(167, 139, 250, .1);
-      line-height: .82;
+      color: rgba(167, 139, 250, 0.1);
+      line-height: 0.82;
       margin-right: 22px;
       user-select: none;
     }
 
     .sec-titles h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: "Playfair Display", serif;
       font-size: clamp(32px, 3.5vw, 48px);
       color: var(--lila-800);
       line-height: 1.08;
@@ -605,27 +557,29 @@
     }
 
     .sec-titles p {
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 10px;
-      letter-spacing: .18em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--lila-400);
       margin-top: 6px;
     }
 
     .sec-more {
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 10px;
-      letter-spacing: .16em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--lila-600);
       text-decoration: none;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 7px;
       border-bottom: 1px solid var(--lila-200);
       padding-bottom: 3px;
-      transition: all .3s;
+      transition: all 0.3s;
+      position: relative;
+      z-index: 1;
     }
 
     .sec-more:hover {
@@ -634,7 +588,6 @@
       border-color: var(--lila-400);
     }
 
-    /* ── PROYECTOS GRID ── */
     .projects-grid {
       padding: 0 60px 80px;
       display: grid;
@@ -644,14 +597,14 @@
 
     .pcard {
       background: white;
-      border: 1px solid rgba(196, 181, 253, .18);
+      border: 1px solid rgba(196, 181, 253, 0.18);
       border-radius: 6px;
       padding: 32px;
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: all .35s;
+      transition: all 0.35s;
       opacity: 0;
       transform: translateY(16px);
     }
@@ -659,11 +612,11 @@
     .pcard.visible {
       opacity: 1;
       transform: translateY(0);
-      transition: opacity .55s ease, transform .55s ease, box-shadow .35s, border-color .35s;
+      transition: opacity 0.55s ease, transform 0.55s ease, box-shadow 0.35s, border-color 0.35s;
     }
 
     .pcard::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: 0;
       left: 0;
@@ -672,11 +625,11 @@
       background: linear-gradient(90deg, var(--lila-700), var(--lila-400));
       transform: scaleX(0);
       transform-origin: left;
-      transition: transform .35s;
+      transition: transform 0.35s;
     }
 
     .pcard:hover {
-      box-shadow: 0 14px 44px rgba(91, 33, 182, .11);
+      box-shadow: 0 14px 44px rgba(91, 33, 182, 0.11);
       transform: translateY(-5px);
     }
 
@@ -684,7 +637,6 @@
       transform: scaleX(1);
     }
 
-    /* card oscura (destacada) */
     .pcard-dark {
       background: var(--lila-800);
     }
@@ -698,23 +650,23 @@
     }
 
     .pcard-dark .pcard-desc {
-      color: rgba(255, 255, 255, .62);
+      color: rgba(255, 255, 255, 0.62);
     }
 
     .pcard-dark .pcard-tech span {
-      background: rgba(255, 255, 255, .07);
-      border-color: rgba(196, 181, 253, .25);
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(196, 181, 253, 0.25);
       color: var(--lila-200);
     }
 
     .pcard-dark .pcard-link {
       color: var(--lila-200);
-      border-color: rgba(196, 181, 253, .3);
+      border-color: rgba(196, 181, 253, 0.3);
     }
 
     .pcard-dark .pcard-link:hover {
       color: white;
-      border-color: rgba(255, 255, 255, .5);
+      border-color: rgba(255, 255, 255, 0.5);
     }
 
     .pcard-dark::after {
@@ -730,16 +682,16 @@
     }
 
     .pcard-cat {
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 10px;
-      letter-spacing: .2em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--lila-400);
       margin-bottom: 14px;
     }
 
     .pcard-title {
-      font-family: 'Playfair Display', serif;
+      font-family: "Playfair Display", serif;
       font-size: 20px;
       color: var(--lila-800);
       line-height: 1.2;
@@ -763,9 +715,9 @@
     }
 
     .pcard-tech span {
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 9px;
-      letter-spacing: .1em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--lila-700);
       border: 1px solid var(--lila-200);
@@ -775,9 +727,9 @@
     }
 
     .pcard-link {
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 10px;
-      letter-spacing: .14em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--lila-600);
       text-decoration: none;
@@ -786,8 +738,10 @@
       gap: 6px;
       border-bottom: 1px solid var(--lila-200);
       padding-bottom: 2px;
-      transition: all .25s;
+      transition: all 0.25s;
       align-self: flex-start;
+      position: relative;
+      z-index: 2;
     }
 
     .pcard-link:hover {
@@ -796,34 +750,38 @@
       border-color: var(--lila-400);
     }
 
-    /* ── CERTIFICACIÓN ── */
     .certs-wrap {
       padding: 0 60px 80px;
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
 
-    .cert-card {
-      background: var(--lila-900);
-      border: 1px solid rgba(212, 168, 71, .2);
-      border-radius: 6px;
-      padding: 36px 32px;
-      position: relative;
-      overflow: hidden;
-      transition: transform .35s, box-shadow .35s;
+    .cert-card,
+    .cert-next {
       opacity: 0;
       transform: translateY(16px);
     }
 
-    .cert-card.visible {
+    .cert-card {
+      background: var(--lila-900);
+      border: 1px solid rgba(212, 168, 71, 0.2);
+      border-radius: 6px;
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s, box-shadow 0.35s;
+    }
+
+    .cert-card.visible,
+    .cert-next.visible {
       opacity: 1;
       transform: translateY(0);
-      transition: opacity .55s ease, transform .55s ease, box-shadow .35s;
+      transition: opacity 0.55s ease, transform 0.55s ease, box-shadow 0.35s;
     }
 
     .cert-card::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
@@ -834,13 +792,13 @@
 
     .cert-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 16px 48px rgba(30, 10, 64, .3);
+      box-shadow: 0 16px 48px rgba(30, 10, 64, 0.3);
     }
 
     .cert-issuer {
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 9px;
-      letter-spacing: .22em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 10px;
@@ -853,7 +811,7 @@
     }
 
     .cert-title {
-      font-family: 'Playfair Display', serif;
+      font-family: "Playfair Display", serif;
       font-size: 20px;
       font-weight: 700;
       color: white;
@@ -869,7 +827,7 @@
     .cert-desc {
       font-size: 13px;
       line-height: 1.75;
-      color: rgba(255, 255, 255, .58);
+      color: rgba(255, 255, 255, 0.58);
       font-weight: 300;
       margin-bottom: 18px;
     }
@@ -878,23 +836,22 @@
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 9px;
-      letter-spacing: .12em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--gold);
-      border: 1px solid rgba(212, 168, 71, .3);
-      background: rgba(212, 168, 71, .06);
+      border: 1px solid rgba(212, 168, 71, 0.3);
+      background: rgba(212, 168, 71, 0.06);
       padding: 3px 10px;
       border-radius: 2px;
       margin-right: 5px;
       margin-bottom: 5px;
-      display: inline-flex;
     }
 
     .cert-next {
       background: transparent;
-      border: 1px dashed rgba(167, 139, 250, .3);
+      border: 1px dashed rgba(167, 139, 250, 0.3);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -902,20 +859,12 @@
       text-align: center;
       padding: 40px 28px;
       border-radius: 6px;
-      opacity: 0;
-      transform: translateY(16px);
-    }
-
-    .cert-next.visible {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity .55s ease, transform .55s ease;
     }
 
     .cert-next-icon {
       font-size: 40px;
       margin-bottom: 14px;
-      opacity: .4;
+      opacity: 0.4;
     }
 
     .cert-next p {
@@ -926,7 +875,6 @@
       font-style: italic;
     }
 
-    /* ── HABILIDADES ── */
     .skills-section {
       padding: 0 60px 80px;
       display: grid;
@@ -947,15 +895,15 @@
     }
 
     .sk-label {
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 10px;
-      letter-spacing: .13em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--lila-800);
     }
 
     .sk-pct {
-      font-family: 'Playfair Display', serif;
+      font-family: "Playfair Display", serif;
       font-size: 17px;
       color: var(--lila-400);
     }
@@ -983,16 +931,16 @@
     }
 
     .tool {
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 10px;
-      letter-spacing: .11em;
+      letter-spacing: 0.11em;
       text-transform: uppercase;
       padding: 7px 16px;
       border-radius: 30px;
       color: var(--lila-800);
-      background: rgba(167, 139, 250, .08);
-      border: 1px solid rgba(167, 139, 250, .22);
-      transition: all .25s;
+      background: rgba(167, 139, 250, 0.08);
+      border: 1px solid rgba(167, 139, 250, 0.22);
+      transition: all 0.25s;
       cursor: default;
     }
 
@@ -1029,7 +977,6 @@
       line-height: 1.75;
     }
 
-    /* ── CONTACTO ── */
     .contact-wrap {
       margin: 0 60px 60px;
       background: var(--lila-900);
@@ -1044,34 +991,35 @@
     }
 
     .contact-wrap::before {
-      content: '';
+      content: "";
       position: absolute;
       right: -80px;
       top: -80px;
       width: 380px;
       height: 380px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(124, 58, 237, .2) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.2) 0%, transparent 70%);
     }
 
     .contact-wrap::after {
-      content: '';
+      content: "";
       position: absolute;
       left: 28%;
       bottom: -70px;
       width: 180px;
       height: 180px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(212, 168, 71, .06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(212, 168, 71, 0.06) 0%, transparent 70%);
     }
 
-    .contact-left {
+    .contact-left,
+    .contact-right {
       position: relative;
       z-index: 2;
     }
 
     .contact-left h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: "Playfair Display", serif;
       font-size: clamp(30px, 3vw, 46px);
       color: white;
       line-height: 1.1;
@@ -1086,13 +1034,11 @@
     .contact-left p {
       font-size: 14.5px;
       line-height: 1.82;
-      color: rgba(255, 255, 255, .58);
+      color: rgba(255, 255, 255, 0.58);
       font-weight: 300;
     }
 
     .contact-right {
-      position: relative;
-      z-index: 2;
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -1103,17 +1049,17 @@
       align-items: center;
       gap: 15px;
       padding: 17px 20px;
-      background: rgba(255, 255, 255, .055);
-      border: 1px solid rgba(255, 255, 255, .09);
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(255, 255, 255, 0.09);
       border-radius: 5px;
       text-decoration: none;
       color: white;
-      transition: all .3s;
+      transition: all 0.3s;
     }
 
     .citem:hover {
-      background: rgba(255, 255, 255, .1);
-      border-color: rgba(196, 181, 253, .3);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(196, 181, 253, 0.3);
       transform: translateX(6px);
       color: white;
     }
@@ -1122,7 +1068,7 @@
       width: 36px;
       height: 36px;
       border-radius: 4px;
-      background: rgba(167, 139, 250, .2);
+      background: rgba(167, 139, 250, 0.2);
       display: grid;
       place-items: center;
       font-size: 15px;
@@ -1131,9 +1077,9 @@
     }
 
     .citem-label {
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 9px;
-      letter-spacing: .2em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--lila-400);
       margin-bottom: 2px;
@@ -1141,11 +1087,10 @@
 
     .citem-val {
       font-size: 13px;
-      color: rgba(255, 255, 255, .82);
+      color: rgba(255, 255, 255, 0.82);
       font-weight: 300;
     }
 
-    /* ── FOOTER ── */
     footer {
       padding: 34px 60px;
       display: flex;
@@ -1155,40 +1100,36 @@
     }
 
     .footer-logo {
-      font-family: 'Playfair Display', serif;
+      font-family: "Playfair Display", serif;
       font-size: 20px;
       color: var(--lila-800);
     }
 
     .footer-copy {
-      font-family: 'DM Mono', monospace;
+      font-family: "DM Mono", monospace;
       font-size: 10px;
-      letter-spacing: .18em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--lila-400);
     }
 
-    /* ── DIVIDER ── */
     .divider {
       height: 1px;
       margin: 0 60px;
       background: linear-gradient(90deg, transparent, var(--lila-200), transparent);
     }
 
-    /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from {
         opacity: 0;
         transform: translateY(22px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav {
         padding: 18px 24px;
@@ -1217,26 +1158,37 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
+      .avail-strip,
+      .profile-band,
+      .projects-grid,
+      .certs-wrap,
+      .skills-section {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
       .avail-strip {
-        padding: 22px 24px;
+        padding-top: 22px;
+        padding-bottom: 22px;
       }
 
       .profile-band {
         grid-template-columns: 1fr;
-        padding: 40px 24px;
+        padding-top: 40px;
+        padding-bottom: 40px;
         gap: 24px;
       }
 
       .sec-head {
         padding: 60px 24px 32px;
         flex-direction: column;
-        gap: 16px;
         align-items: flex-start;
       }
 
-      .projects-grid {
+      .projects-grid,
+      .certs-wrap,
+      .skills-section {
         grid-template-columns: 1fr;
-        padding: 0 24px 60px;
       }
 
       .pcard-span2 {
@@ -1245,17 +1197,6 @@
 
       .pcard-span2 .pcard-title {
         font-size: 22px !important;
-      }
-
-      .certs-wrap {
-        grid-template-columns: 1fr;
-        padding: 0 24px 60px;
-      }
-
-      .skills-section {
-        grid-template-columns: 1fr;
-        padding: 0 24px 60px;
-        gap: 40px;
       }
 
       .contact-wrap {
@@ -1279,8 +1220,6 @@
 </head>
 
 <body>
-
-  <!-- NAV -->
   <nav>
     <div class="nav-logo">KG · Portfolio</div>
     <ul class="nav-links">
@@ -1291,21 +1230,23 @@
     </ul>
   </nav>
 
-  <!-- ═══ HERO ═══ -->
   <section class="hero">
     <div class="hero-content">
       <div class="hero-eyebrow">
         <span class="pulse-dot"></span>
         En formación · Bootcamp activo
       </div>
-      <h1 class="hero-name">Karin<br><em>García</em></h1>
+
+      <h1 class="hero-name">Karin<br /><em>García</em></h1>
       <p class="hero-role">Datos · IA · Desarrollo Web</p>
+
       <p class="hero-desc">
         Me apasiona analizar datos, encontrar patrones y construir soluciones
         basadas en evidencia. Estoy aprendiendo con dedicación real y quiero
         convertirme en la mejor versión de mí misma en cada proyecto.
         Honesta, curiosa y lista para trabajar.
       </p>
+
       <div class="hero-ctas">
         <a href="#proyectos" class="btn-primary">Ver mis proyectos →</a>
         <a href="#contacto" class="btn-secondary">Hablemos</a>
@@ -1324,14 +1265,13 @@
     </div>
   </section>
 
-  <!-- STATS -->
   <div class="stats-row">
     <div class="stat">
       <div class="stat-num">5<span>+</span></div>
       <div class="stat-label">Proyectos realizados</div>
     </div>
     <div class="stat">
-      <div class="stat-num">2<span></span></div>
+      <div class="stat-num">2</div>
       <div class="stat-label">Certificaciones</div>
     </div>
     <div class="stat">
@@ -1344,7 +1284,6 @@
     </div>
   </div>
 
-  <!-- DISPONIBILIDAD -->
   <div class="avail-strip">
     <span class="avail-dot"></span>
     <p class="avail-text">
@@ -1355,44 +1294,43 @@
     </p>
   </div>
 
-  <!-- PERFIL -->
   <div class="profile-band">
     <div class="profile-name">
       <span>Quién soy</span>
-      Karin García<br>Salazar
+      Karin García<br />Salazar
     </div>
+
     <p class="profile-bio">
-      Científica de datos en formación con certificación en analisis de datos, en IA Generativa (U. de Chile).
+      Científica de datos en formación con certificación en análisis de datos e IA Generativa (U. de Chile).
       Me especializo en convertir datos en insights claros y accionables.
       Sigo aprendiendo cada día con un objetivo claro: ser la mejor en lo que hago.
     </p>
+
     <div class="profile-links">
       <a href="mailto:k.garciasalazar01@gmail.com" class="profile-link">
         <svg viewBox="0 0 24 24">
-          <path
-            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
         </svg>
         k.garciasalazar01@gmail.com
       </a>
-      <a href="https://github.com/kgarciasalazar01" target="_blank" class="profile-link">
+
+      <a href="https://github.com/kgarciasalazar01" target="_blank" rel="noopener noreferrer" class="profile-link">
         <svg viewBox="0 0 24 24">
-          <path
-            d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85 0 1.71.11 2.51.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z" />
+          <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85 0 1.71.11 2.51.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/>
         </svg>
         github.com/kgarciasalazar01
       </a>
-      <a href="https://www.linkedin.com/in/karin-garcía-salazar-4797b675/" target="_blank" class="profile-link">
+
+      <a href="https://www.linkedin.com/in/karin-garcía-salazar-4797b675/" target="_blank" rel="noopener noreferrer" class="profile-link">
         <svg viewBox="0 0 24 24">
-          <path
-            d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.44v6.3zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.11 20.45H3.56V9h3.55v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+          <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.44v6.3zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.11 20.45H3.56V9h3.55v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/>
         </svg>
         LinkedIn
       </a>
     </div>
   </div>
 
-  <!-- ═══ PROYECTOS BOOTCAMP ═══ -->
-  <div id="proyectos">
+  <section id="proyectos">
     <div class="sec-head">
       <div class="sec-left">
         <span class="sec-num">01</span>
@@ -1401,70 +1339,68 @@
           <p>Bootcamp · Lo que construí</p>
         </div>
       </div>
-      <a href="https://github.com/kgarciasalazar01" target="_blank" class="sec-more">Ver GitHub →</a>
+      <a href="https://github.com/kgarciasalazar01" target="_blank" rel="noopener noreferrer" class="sec-more">Ver GitHub →</a>
     </div>
 
     <div class="projects-grid">
-      <!-- Destacado -->
-      <div class="pcard pcard-dark pcard-span2">
-        <div class="pcard-cat">★ Proyecto principal · Python-Django </div>
-        <div class="pcard-title">Alke Wallet</div>
+      <article class="pcard pcard-dark pcard-span2">
+        <div class="pcard-cat">★ Proyecto principal · Python-Django</div>
+        <h3 class="pcard-title">Alke Wallet</h3>
         <p class="pcard-desc">
           Aplicación web completa para gestionar usuarios, transacciones y saldos.
           Permite ingresar ingresos y gastos, visualizar el balance en tiempo real
-          y revisar el historial de movimientos. Mi proyecto más completo del bootcamp:
-          estructura backend/frontend separada, rutas, formularios y lógica de datos
-          construida desde cero.
+          y revisar el historial de movimientos.
         </p>
         <div class="pcard-tech">
           <span>Python</span><span>Flask</span><span>Bootstrap</span><span>HTML</span><span>CSS</span>
         </div>
-        <a href="https://github.com/kgarciasalazar01/alke-wallet" target="_blank" class="pcard-link">Ver en GitHub →</a>
-      </div>
+        <a href="https://github.com/kgarciasalazar01/alke-wallet" target="_blank" rel="noopener noreferrer" class="pcard-link">Ver en GitHub →</a>
+      </article>
 
-      <div class="pcard">
+      <article class="pcard">
         <div class="pcard-cat">Proyecto inicial</div>
-        <div class="pcard-title">Alke Wallet Basic</div>
+        <h3 class="pcard-title">Alke Wallet Basic</h3>
         <p class="pcard-desc">
           Billetera digital construida con HTML, JS y CSS. Mi primer proyecto real:
           estructura web, formularios y diseño desde la base.
         </p>
-        <div class="pcard-tech"><span>HTML</span><span>CSS</span></div>
-        <a href="https://github.com/kgarciasalazar01/alkewallet-basic" target="_blank" class="pcard-link">Ver en GitHub
-          →</a>
-      </div>
+        <div class="pcard-tech">
+          <span>HTML</span><span>CSS</span>
+        </div>
+        <a href="https://github.com/kgarciasalazar01/alkewallet-basic" target="_blank" rel="noopener noreferrer" class="pcard-link">Ver en GitHub →</a>
+      </article>
 
-      <div class="pcard">
+      <article class="pcard">
         <div class="pcard-cat">Programación orientada a objetos · Python</div>
-        <div class="pcard-title">Proyecto POO — Gestión de Clientes</div>
+        <h3 class="pcard-title">Proyecto POO — Gestión de Clientes</h3>
         <p class="pcard-desc">
           Aplicación en Python con arquitectura orientada a objetos.
-          Incluye modelo de clases, servicios, validaciones y
-          persistencia en JSON. Mi primer proyecto estructurado
-          con separación de responsabilidades en capas.
+          Incluye modelo de clases, servicios, validaciones y persistencia en JSON.
         </p>
-        <div class="pcard-tech"><span>SQL</span></div>
-        <a href="https://github.com/kgarciasalazar01/programacion-orientada-a-objetos" target="_blank"
-          class="pcard-link">Ver en GitHub →</a>
-      </div>
-      <div class="pcard-cat">Python · Módulos</div>
-      <div class="pcard-title">Sistema de Gestión de Eventos y Cumpleaños</div>
-      <p class="pcard-desc">
-        Aplicación en Python para registrar y gestionar eventos
-        y cumpleaños. Incluye manejo de datos, módulos separados
-        por responsabilidad y documentación técnica completa.
-        Primer proyecto con arquitectura modular en Python.
-      </p>
-      <div class="pcard-tech"><span>SQL</span></div>
-      <a href="https://github.com/kgarciasalazar01/gestion-eventos-basico" target="_blank" class="pcard-link">Ver en
-        GitHub →</a>
+        <div class="pcard-tech">
+          <span>Python</span><span>JSON</span>
+        </div>
+        <a href="https://github.com/kgarciasalazar01/programacion-orientada-a-objetos" target="_blank" rel="noopener noreferrer" class="pcard-link">Ver en GitHub →</a>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-cat">Python · Módulos</div>
+        <h3 class="pcard-title">Sistema de Gestión de Eventos y Cumpleaños</h3>
+        <p class="pcard-desc">
+          Aplicación en Python para registrar y gestionar eventos y cumpleaños.
+          Incluye módulos separados por responsabilidad y documentación técnica.
+        </p>
+        <div class="pcard-tech">
+          <span>Python</span><span>Módulos</span>
+        </div>
+        <a href="https://github.com/kgarciasalazar01/gestion-eventos-basico" target="_blank" rel="noopener noreferrer" class="pcard-link">Ver en GitHub →</a>
+      </article>
     </div>
-  </div>
+  </section>
 
   <div class="divider"></div>
 
-  <!-- ═══ PROYECTOS DATA SCIENCE ═══ -->
-  <div>
+  <section>
     <div class="sec-head">
       <div class="sec-left">
         <span class="sec-num">02</span>
@@ -1473,60 +1409,67 @@
           <p>Análisis & Machine Learning</p>
         </div>
       </div>
-      <a href="https://github.com/kgarciasalazar01" target="_blank" class="sec-more">Ver GitHub →</a>
-    </div>
-    <div class="pcard">
-      <div class="pcard-cat">Machine Learning</div>
-      <div class="pcard-title">Detección de Cardiopatía con Modelos de Ensamble</div>
-      <p class="pcard-desc">
-        Clasificación de datos clínicos mediante técnicas de ensamble y redes neuronales.
-        Incluye preparación de datos, entrenamiento de modelos, evaluación con métricas y visualización de resultados.
-      </p>
-      <div class="pcard-tech"><span>Python</span><span>Scikit-learn</span></div>
-      <a href="https://github.com/kgarciasalazar01/deteccion-de-cardiopatia" target="_blank" class="pcard-link">Ver en
-        GitHub →</a>
-    </div>
-    <div class="pcard">
-      <div class="pcard-cat">Machine Learning</div>
-      <div class="pcard-title">Predicción de Churn en Telecom con ML</div>
-      <p class="pcard-desc">
-        Pipeline completo de Machine Learning aplicado a predicción de churn en telecomunicaciones:
-        limpieza de datos, entrenamiento de modelos de ensamble y análisis de métricas.
-      </p>
-      <div class="pcard-tech"><span>Python</span><span>Scikit-learn</span></div>
-      <a href="https://github.com/kgarciasalazar01/emsable-1" target="_blank" class="pcard-link">Ver en GitHub →</a>
-    </div>
-    <div class="pcard">
-      <div class="pcard-cat">Redes Neuronales</div>
-      <div class="pcard-title">Redes Neuronales para Customer Churn</div>
-      <p class="pcard-desc">
-        Implementación de una red neuronal para predecir pérdida de clientes, con exploración de dataset,
-        preprocesamiento y evaluación del desempeño.
-      </p>
-      <div class="pcard-tech"><span>Python</span><span>Scikit-learn</span></div>
-      <a href="https://github.com/kgarciasalazar01/prediccion-de-renuncias-de-clientes" target="_blank"
-        class="pcard-link">Ver en GitHub →</a>
-    </div>
-    <div class="pcard">
-      <div class="pcard-cat">Redes Neuronales</div>
-      <div class="pcard-title">Predicción de cancelación de reservas</div>
-      <p class="pcard-desc">
-        Implementación de una red neuronal para predecir la cancelacion de reservas, con exploración de dataset,
-        preprocesamiento y evaluación del desempeño.
-      </p>
-      <div class="pcard-tech"><span>Python</span><span>Scikit-learn</span></div>
-      <a href="https://github.com/kgarciasalazar01/prediccion-de-cancelacion-de-reservas" target="_blank"
-        class="pcard-link">Ver en GitHub →</a>
+      <a href="https://github.com/kgarciasalazar01" target="_blank" rel="noopener noreferrer" class="sec-more">Ver GitHub →</a>
     </div>
 
+    <div class="projects-grid">
+      <article class="pcard">
+        <div class="pcard-cat">Machine Learning</div>
+        <h3 class="pcard-title">Detección de Cardiopatía con Modelos de Ensamble</h3>
+        <p class="pcard-desc">
+          Clasificación de datos clínicos mediante técnicas de ensamble y redes neuronales.
+          Incluye preparación de datos, entrenamiento de modelos y evaluación.
+        </p>
+        <div class="pcard-tech">
+          <span>Python</span><span>Scikit-learn</span>
+        </div>
+        <a href="https://github.com/kgarciasalazar01/deteccion-de-cardiopatia" target="_blank" rel="noopener noreferrer" class="pcard-link">Ver en GitHub →</a>
+      </article>
 
-  </div>
-  </div>
+      <article class="pcard">
+        <div class="pcard-cat">Machine Learning</div>
+        <h3 class="pcard-title">Predicción de Churn en Telecom con ML</h3>
+        <p class="pcard-desc">
+          Pipeline completo de Machine Learning aplicado a predicción de churn en telecomunicaciones:
+          limpieza de datos, entrenamiento de modelos y análisis de métricas.
+        </p>
+        <div class="pcard-tech">
+          <span>Python</span><span>Scikit-learn</span>
+        </div>
+        <a href="https://github.com/kgarciasalazar01/emsable-1" target="_blank" rel="noopener noreferrer" class="pcard-link">Ver en GitHub →</a>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-cat">Redes Neuronales</div>
+        <h3 class="pcard-title">Redes Neuronales para Customer Churn</h3>
+        <p class="pcard-desc">
+          Implementación de una red neuronal para predecir pérdida de clientes,
+          con exploración de dataset, preprocesamiento y evaluación.
+        </p>
+        <div class="pcard-tech">
+          <span>Python</span><span>Scikit-learn</span>
+        </div>
+        <a href="https://github.com/kgarciasalazar01/prediccion-de-renuncias-de-clientes" target="_blank" rel="noopener noreferrer" class="pcard-link">Ver en GitHub →</a>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-cat">Redes Neuronales</div>
+        <h3 class="pcard-title">Predicción de cancelación de reservas</h3>
+        <p class="pcard-desc">
+          Implementación de una red neuronal para predecir la cancelación de reservas,
+          con exploración de dataset, preprocesamiento y evaluación del desempeño.
+        </p>
+        <div class="pcard-tech">
+          <span>Python</span><span>Scikit-learn</span>
+        </div>
+        <a href="https://github.com/kgarciasalazar01/prediccion-de-cancelacion-de-reservas" target="_blank" rel="noopener noreferrer" class="pcard-link">Ver en GitHub →</a>
+      </article>
+    </div>
+  </section>
 
   <div class="divider"></div>
 
-  <!-- ═══ CERTIFICACIONES ═══ -->
-  <div id="certificaciones">
+  <section id="certificaciones">
     <div class="sec-head">
       <div class="sec-left">
         <span class="sec-num">03</span>
@@ -1538,252 +1481,264 @@
     </div>
 
     <div class="certs-wrap">
-
-      <!-- IA Generativa -->
-      <div class="cert-card">
+      <article class="cert-card">
         <div class="cert-issuer">★ Universidad de Chile</div>
         <div class="cert-icon">🤖</div>
         <h3 class="cert-title">Inteligencia Artificial <em>Generativa</em></h3>
         <p class="cert-desc">
           Fundamentos y aplicaciones de IA Generativa: modelos de lenguaje,
-          técnicas de prompting, casos de uso reales y ética en IA. Formación
-          académica que amplía mi visión en ciencia de datos.
+          técnicas de prompting, casos de uso reales y ética en IA.
         </p>
         <div>
           <span class="cert-tag">✓ Certificado</span>
           <span class="cert-tag">U. de Chile</span>
           <span class="cert-tag">IA · LLMs</span>
         </div>
-      </div>
+      </article>
 
-      <!-- Bootcamp Data Analyst -->
-      <div class="cert-card">
+      <article class="cert-card">
         <div class="cert-issuer">⚡ Desafío Latam</div>
         <div class="cert-icon">📊</div>
         <h3 class="cert-title">Data Analyst</h3>
         <p class="cert-desc">
           Certificación en análisis de datos: Python, SQL, visualización y
-          fundamentos de Machine Learning. Proyecto final aplicado a casos reales.
+          fundamentos de Machine Learning.
         </p>
         <div>
           <span class="cert-tag">✓ Certificado</span>
           <span class="cert-tag">Python · SQL</span>
           <span class="cert-tag">Data Viz · ML</span>
         </div>
-      </div>
+      </article>
 
-      <!-- Bootcamp Data Science -->
-      <div class="cert-card">
+      <article class="cert-card">
         <div class="cert-issuer">⚡ Desafío Latam</div>
         <div class="cert-icon">📈</div>
         <h3 class="cert-title">Data Science (en proceso)</h3>
         <p class="cert-desc">
           Formación intensiva en ciencia de datos: estadística aplicada,
-          modelado predictivo, Machine Learning y proyectos prácticos. En curso activo.
+          modelado predictivo, Machine Learning y proyectos prácticos.
         </p>
         <div>
           <span class="cert-tag">⏳ En curso</span>
           <span class="cert-tag">Python · ML</span>
           <span class="cert-tag">Data Science</span>
         </div>
-      </div>
+      </article>
 
-      <!-- Google Coursera -->
-      <div class="cert-card">
+      <article class="cert-card">
         <div class="cert-issuer">🌐 Google · Coursera</div>
         <div class="cert-icon">🎓</div>
         <h3 class="cert-title">Análisis de Datos (en proceso)</h3>
         <p class="cert-desc">
           Programa profesional de Google en Coursera. Herramientas de análisis,
-          visualización y toma de decisiones basadas en datos. En curso activo.
+          visualización y toma de decisiones basadas en datos.
         </p>
         <div>
           <span class="cert-tag">⏳ En curso</span>
           <span class="cert-tag">Google</span>
           <span class="cert-tag">Data Analytics</span>
         </div>
-      </div>
+      </article>
 
-      <!-- Alkemy SENCE -->
-      <div class="cert-card">
+      <article class="cert-card">
         <div class="cert-issuer">⚡ Alkemy · SENCE · Talento Digital</div>
         <div class="cert-icon">💻</div>
         <h3 class="cert-title">Desarrollo de Aplicaciones Fullstack Python</h3>
         <p class="cert-desc">
           Programa intensivo orientado a desarrollo web y backend con Python.
-          Incluye Django, bases de datos SQL, APIs REST y despliegue en la nube.
+          Incluye Django, bases de datos SQL y despliegue.
         </p>
         <div>
           <span class="cert-tag">⏳ En curso</span>
           <span class="cert-tag">Python · Flask</span>
           <span class="cert-tag">Fullstack</span>
         </div>
+      </article>
 
-        <!-- Próximo -->
-        <div class="cert-next">
-          <div class="cert-next-icon">🏆</div>
-          <div
-            style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--lila-400);margin-bottom:10px;">
-            Próximo objetivo</div>
-          <p>Seguir aprendiendo, certificándome y construyendo proyectos que importen de verdad.</p>
+      <div class="cert-next">
+        <div class="cert-next-icon">🏆</div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--lila-400);margin-bottom:10px;">
+          Próximo objetivo
+        </div>
+        <p>Seguir aprendiendo, certificándome y construyendo proyectos que importen de verdad.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="habilidades">
+    <div class="sec-head">
+      <div class="sec-left">
+        <span class="sec-num">04</span>
+        <div class="sec-titles">
+          <h2>Mis <em>habilidades</em></h2>
+          <p>Nivel actual · Con honestidad</p>
         </div>
       </div>
     </div>
 
-    <div class="divider"></div>
-
-    <!-- ═══ HABILIDADES ═══ -->
-    <div id="habilidades">
-      <div class="sec-head">
-        <div class="sec-left">
-          <span class="sec-num">04</span>
-          <div class="sec-titles">
-            <h2>Mis <em>habilidades</em></h2>
-            <p>Nivel actual · Con honestidad</p>
+    <div class="skills-section">
+      <div id="skillsCol">
+        <div class="sk-row">
+          <div class="sk-header">
+            <span class="sk-label">Python / Ciencia de datos</span>
+            <span class="sk-pct">80</span>
           </div>
+          <div class="sk-track"><div class="sk-fill" data-w="80"></div></div>
+        </div>
+
+        <div class="sk-row">
+          <div class="sk-header">
+            <span class="sk-label">SQL & Bases de datos</span>
+            <span class="sk-pct">75</span>
+          </div>
+          <div class="sk-track"><div class="sk-fill" data-w="75"></div></div>
+        </div>
+
+        <div class="sk-row">
+          <div class="sk-header">
+            <span class="sk-label">Análisis & Visualización</span>
+            <span class="sk-pct">78</span>
+          </div>
+          <div class="sk-track"><div class="sk-fill" data-w="78"></div></div>
+        </div>
+
+        <div class="sk-row">
+          <div class="sk-header">
+            <span class="sk-label">Desarrollo web · Django</span>
+            <span class="sk-pct">65</span>
+          </div>
+          <div class="sk-track"><div class="sk-fill" data-w="65"></div></div>
+        </div>
+
+        <div class="sk-row">
+          <div class="sk-header">
+            <span class="sk-label">Machine Learning</span>
+            <span class="sk-pct">60</span>
+          </div>
+          <div class="sk-track"><div class="sk-fill" data-w="60"></div></div>
+        </div>
+
+        <div class="sk-row">
+          <div class="sk-header">
+            <span class="sk-label">IA Generativa & Prompting</span>
+            <span class="sk-pct">70</span>
+          </div>
+          <div class="sk-track"><div class="sk-fill" data-w="70"></div></div>
+        </div>
+
+        <div class="tools-wrap">
+          <span class="tool">Python</span>
+          <span class="tool">Pandas</span>
+          <span class="tool">Scikit-learn</span>
+          <span class="tool">Matplotlib</span>
+          <span class="tool">SQL</span>
+          <span class="tool">Django</span>
+          <span class="tool">Bootstrap</span>
+          <span class="tool">HTML · CSS</span>
+          <span class="tool">Git</span>
+          <span class="tool">IA Generativa</span>
         </div>
       </div>
 
-      <div class="skills-section">
-        <div id="skillsCol">
-          <div class="sk-row">
-            <div class="sk-header"><span class="sk-label">Python / Ciencia de datos</span><span class="sk-pct">80</span>
-            </div>
-            <div class="sk-track">
-              <div class="sk-fill" data-w="80"></div>
-            </div>
-          </div>
-          <div class="sk-row">
-            <div class="sk-header"><span class="sk-label">SQL & Bases de datos</span><span class="sk-pct">75</span>
-            </div>
-            <div class="sk-track">
-              <div class="sk-fill" data-w="75"></div>
-            </div>
-          </div>
-          <div class="sk-row">
-            <div class="sk-header"><span class="sk-label">Análisis & Visualización</span><span class="sk-pct">78</span>
-            </div>
-            <div class="sk-track">
-              <div class="sk-fill" data-w="78"></div>
-            </div>
-          </div>
-          <div class="sk-row">
-            <div class="sk-header"><span class="sk-label">Desarrollo web · Django</span><span class="sk-pct">65</span>
-            </div>
-            <div class="sk-track">
-              <div class="sk-fill" data-w="65"></div>
-            </div>
-          </div>
-          <div class="sk-row">
-            <div class="sk-header"><span class="sk-label">Machine Learning</span><span class="sk-pct">60</span></div>
-            <div class="sk-track">
-              <div class="sk-fill" data-w="60"></div>
-            </div>
-          </div>
-          <div class="sk-row">
-            <div class="sk-header"><span class="sk-label">IA Generativa & Prompting</span><span class="sk-pct">70</span>
-            </div>
-            <div class="sk-track">
-              <div class="sk-fill" data-w="70"></div>
-            </div>
-          </div>
-          <div class="tools-wrap">
-            <span class="tool">Python</span><span class="tool">Pandas</span>
-            <span class="tool">Scikit-learn</span><span class="tool">Matplotlib</span>
-            <span class="tool">SQL</span><span class="tool">Django</span>
-            <span class="tool">Bootstrap</span><span class="tool">HTML · CSS</span>
-            <span class="tool">Git</span><span class="tool">IA Generativa</span>
-          </div>
-        </div>
+      <div class="skills-text">
+        <p>
+          Estos porcentajes son reales. Prefiero ser honesta sobre dónde estoy
+          hoy que inflar números que no representan nada.
+          Lo que sí te garantizo: <strong>aprendo rápido y me comprometo al máximo.</strong>
+        </p>
 
-        <div class="skills-text">
-          <p>
-            Estos porcentajes son reales. Prefiero ser honesta sobre donde estoy
-            hoy que inflar números que no representan nada.
-            Lo que sí te garantizo: <strong>aprendo rápido y me comprometo al máximo.</strong>
-          </p>
-          <p>
-            Mi enfoque principal es la <strong>ciencia de datos</strong>: entender los datos,
-            limpiarlos, explorarlos y extraer insights que sirvan para tomar decisiones reales.
-          </p>
-          <p>
-            La certificación en <strong>IA Generativa</strong> de la U. de Chile complementa
-            esa visión. Quiero construir soluciones que combinen análisis sólido con
-            las posibilidades que abre la inteligencia artificial.
-          </p>
-          <div class="skills-note">
-            Sigo aprendiendo cada día. Con honestidad, curiosidad y
-            <em>muchas ganas de llegar lejos.</em>
-          </div>
+        <p>
+          Mi enfoque principal es la <strong>ciencia de datos</strong>: entender los datos,
+          limpiarlos, explorarlos y extraer insights que sirvan para tomar decisiones reales.
+        </p>
+
+        <p>
+          La certificación en <strong>IA Generativa</strong> de la U. de Chile complementa
+          esa visión. Quiero construir soluciones que combinen análisis sólido con
+          las posibilidades que abre la inteligencia artificial.
+        </p>
+
+        <div class="skills-note">
+          Sigo aprendiendo cada día. Con honestidad, curiosidad y
+          <em>muchas ganas de llegar lejos.</em>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- ═══ CONTACTO ═══ -->
-    <section id="contacto">
-      <div class="contact-wrap">
-        <div class="contact-left">
-          <h2>¿Tienes un proyecto<br>con <em>datos</em>?</h2>
-          <p>
-            Abierta a colaboraciones, proyectos freelance o simplemente conversar
-            sobre datos e IA. Si valoras la honestidad y las ganas de crecer,
-            escríbeme — te respondo pronto.
-          </p>
-        </div>
-        <div class="contact-right">
-          <a href="mailto:k.garciasalazar01@gmail.com" class="citem">
-            <div class="citem-icon">✉</div>
-            <div class="flex-grow" style="flex:1">
-              <div class="citem-label">Email</div>
-              <div class="citem-val">k.garciasalazar01@gmail.com</div>
-            </div>
-            <span style="color:var(--lila-400)">→</span>
-          </a>
-          <a href="https://github.com/kgarciasalazar01" target="_blank" class="citem">
-            <div class="citem-icon">⌥</div>
-            <div style="flex:1">
-              <div class="citem-label">GitHub</div>
-              <div class="citem-val">github.com/kgarciasalazar01</div>
-            </div>
-            <span style="color:var(--lila-400)">→</span>
-          </a>
-          <a href="https://www.linkedin.com/in/karin-garcía-salazar-4797b675/" target="_blank" class="citem">
-            <div class="citem-icon">in</div>
-            <div style="flex:1">
-              <div class="citem-label">LinkedIn</div>
-              <div class="citem-val">karin-garcía-salazar</div>
-            </div>
-            <span style="color:var(--lila-400)">→</span>
-          </a>
-        </div>
+  <section id="contacto">
+    <div class="contact-wrap">
+      <div class="contact-left">
+        <h2>¿Tienes un proyecto<br />con <em>datos</em>?</h2>
+        <p>
+          Abierta a colaboraciones, proyectos freelance o simplemente conversar
+          sobre datos e IA. Si valoras la honestidad y las ganas de crecer,
+          escríbeme.
+        </p>
       </div>
-    </section>
 
-    <footer>
-      <div class="footer-logo">Karin García</div>
-      <div class="footer-copy">© 2026 · Hecho con dedicación y estilo lila</div>
-    </footer>
+      <div class="contact-right">
+        <a href="mailto:k.garciasalazar01@gmail.com" class="citem">
+          <div class="citem-icon">✉</div>
+          <div style="flex:1">
+            <div class="citem-label">Email</div>
+            <div class="citem-val">k.garciasalazar01@gmail.com</div>
+          </div>
+          <span style="color:var(--lila-400)">→</span>
+        </a>
 
-    <script>
-      // Skill bars
-      const obs1 = new IntersectionObserver(e => {
-        e.forEach(entry => {
-          if (entry.isIntersecting)
-            entry.target.querySelectorAll('.sk-fill').forEach(b => b.style.width = b.dataset.w + '%');
+        <a href="https://github.com/kgarciasalazar01" target="_blank" rel="noopener noreferrer" class="citem">
+          <div class="citem-icon">⌥</div>
+          <div style="flex:1">
+            <div class="citem-label">GitHub</div>
+            <div class="citem-val">github.com/kgarciasalazar01</div>
+          </div>
+          <span style="color:var(--lila-400)">→</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/karin-garcía-salazar-4797b675/" target="_blank" rel="noopener noreferrer" class="citem">
+          <div class="citem-icon">in</div>
+          <div style="flex:1">
+            <div class="citem-label">LinkedIn</div>
+            <div class="citem-val">karin-garcía-salazar</div>
+          </div>
+          <span style="color:var(--lila-400)">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Karin García</div>
+    <div class="footer-copy">© 2026 · Hecho con dedicación y estilo lila</div>
+  </footer>
+
+  <script>
+    const skillsObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.querySelectorAll(".sk-fill").forEach((bar) => {
+          bar.style.width = bar.dataset.w + "%";
         });
-      }, { threshold: 0.3 });
-      const sc = document.getElementById('skillsCol');
-      if (sc) obs1.observe(sc);
+      });
+    }, { threshold: 0.3 });
 
-      // Cards & elementos fade
-      const obs2 = new IntersectionObserver(entries => {
-        entries.forEach((e, i) => {
-          if (e.isIntersecting)
-            setTimeout(() => e.target.classList.add('visible'), i * 80);
-        });
-      }, { threshold: 0.08 });
-      document.querySelectorAll('.pcard, .cert-card, .cert-next').forEach(el => obs2.observe(el));
-    </script>
+    const skillsCol = document.getElementById("skillsCol");
+    if (skillsCol) skillsObserver.observe(skillsCol);
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (!entry.isIntersecting) return;
+        setTimeout(() => entry.target.classList.add("visible"), index * 80);
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll(".pcard, .cert-card, .cert-next").forEach((el) => {
+      fadeObserver.observe(el);
+    });
+  </script>
 </body>
-
 </html>
